@@ -48,6 +48,7 @@ func LogFilter(ctx *svc.ServiceContext, block schema.SyncBlock, addresses []comm
 }
 
 func LogsToEvents(ctx *svc.ServiceContext, logs []types.Log, syncBlockID int64) ([]*schema.SyncEvent, error) {
+	//nolint:prealloc
 	var events []*schema.SyncEvent
 	blockTimes := make(map[int64]int64)
 	sendMessageEvent := &event.SendMessage{}
