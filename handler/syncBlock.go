@@ -77,7 +77,6 @@ func SyncBlock(ctx *svc.ServiceContext) {
 
 		ctx.SyncedBlockNumber = block.Number()
 		ctx.SyncedBlockHash = common.HexToHash(block.Hash())
-
 	}
 }
 

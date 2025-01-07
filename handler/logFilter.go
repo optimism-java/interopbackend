@@ -2,9 +2,10 @@ package handler
 
 import (
 	"context"
-	"github.com/spf13/cast"
 	"math/big"
 	"strings"
+
+	"github.com/spf13/cast"
 
 	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/common"
@@ -46,7 +47,7 @@ func LogFilter(ctx *svc.ServiceContext, block schema.SyncBlock, addresses []comm
 	return LogsToEvents(ctx, logs, block.ID)
 }
 
-func LogsToEvents(ctx *svc.ServiceContext, logs []types.Log, syncBlockId int64) ([]*schema.SyncEvent, error) {
+func LogsToEvents(ctx *svc.ServiceContext, logs []types.Log, syncBlockID int64) ([]*schema.SyncEvent, error) {
 	var events []*schema.SyncEvent
 	blockTimes := make(map[int64]int64)
 	sendMessageEvent := &event.SendMessage{}
@@ -78,7 +79,7 @@ func LogsToEvents(ctx *svc.ServiceContext, logs []types.Log, syncBlockId int64) 
 		payloadMsgBytes := payloadBytes(&vlog)
 		evt := &schema.SyncEvent{
 			Blockchain:      ctx.Config.Blockchain,
-			SyncBlockID:     syncBlockId,
+			SyncBlockID:     syncBlockID,
 			BlockTime:       blockTime,
 			BlockNumber:     cast.ToInt64(vlog.BlockNumber),
 			BlockHash:       vlog.BlockHash.Hex(),
