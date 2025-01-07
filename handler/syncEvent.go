@@ -1,6 +1,9 @@
 package handler
 
 import (
+	"sync"
+	"time"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/optimism-java/interopbackend/internal/blockchain"
 	"github.com/optimism-java/interopbackend/internal/schema"
@@ -8,8 +11,6 @@ import (
 	"github.com/optimism-java/interopbackend/pkg/log"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
-	"sync"
-	"time"
 )
 
 func SyncEvent(ctx *svc.ServiceContext) {

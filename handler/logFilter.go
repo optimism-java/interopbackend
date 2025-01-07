@@ -2,6 +2,9 @@ package handler
 
 import (
 	"context"
+	"math/big"
+	"strings"
+
 	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
@@ -11,8 +14,6 @@ import (
 	"github.com/optimism-java/interopbackend/pkg/event"
 	"github.com/optimism-java/interopbackend/pkg/log"
 	"github.com/pkg/errors"
-	"math/big"
-	"strings"
 )
 
 func LogBatchFilter(ctx *svc.ServiceContext, startBlock, endBlock int64, addresses []common.Address, topics [][]common.Hash) ([]*schema.SyncEvent, error) {

@@ -5,6 +5,7 @@ go 1.23.4
 require (
 	github.com/caarlos0/env/v6 v6.10.1
 	github.com/ethereum/go-ethereum v1.14.12
+	github.com/gin-gonic/gin v1.10.0
 	github.com/go-gormigrate/gormigrate/v2 v2.1.3
 	github.com/pkg/errors v0.9.1
 	github.com/spf13/cast v1.7.1
@@ -31,7 +32,6 @@ require (
 	github.com/ethereum/go-verkle v0.1.1-0.20240829091221-dffa7562dbe9 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
-	github.com/gin-gonic/gin v1.10.0 // indirect
 	github.com/go-ole/go-ole v1.3.0 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect

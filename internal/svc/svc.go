@@ -2,9 +2,10 @@ package svc
 
 import (
 	"context"
-	"github.com/optimism-java/interopbackend/internal/types"
 	"log"
 	"time"
+
+	"github.com/optimism-java/interopbackend/internal/types"
 
 	"gorm.io/driver/mysql"
 

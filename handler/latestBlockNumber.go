@@ -2,10 +2,11 @@ package handler
 
 import (
 	"context"
+	"time"
+
 	"github.com/optimism-java/interopbackend/internal/schema"
 	"github.com/optimism-java/interopbackend/internal/svc"
 	"github.com/optimism-java/interopbackend/pkg/log"
-	"time"
 
 	"github.com/pkg/errors"
 	"github.com/spf13/cast"

@@ -3,12 +3,13 @@ package blockchain
 import (
 	"encoding/hex"
 	"fmt"
+	"math/big"
+	"testing"
+
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/optimism-java/interopbackend/pkg/event"
-	"math/big"
-	"testing"
 )
 
 func TestRemoveContract(t *testing.T) {
@@ -21,7 +22,6 @@ func TestRemoveContract(t *testing.T) {
 	RemoveContract("BB")
 	RemoveContract("CC")
 	fmt.Println(GetContracts())
-
 }
 
 // 382409ac69001e11931a28435afef442cbfd20d9891907e8fa373ba7d351f320
@@ -37,7 +37,7 @@ func TestRemoveContract(t *testing.T) {
 func TestHashL2toL2CrossDomainMessage(t *testing.T) {
 	logs := "382409ac69001e11931a28435afef442cbfd20d9891907e8fa373ba7d351f3200000000000000000000000000000000000000000000000000000000000000386000000000000000000000000420000000000000000000000000000000000002800000000000000000000000000000000000000000000000000000000000000000000000000000000000000004200000000000000000000000000000000000028000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000847cfd6dbc000000000000000000000000420beef000000000000000000000000000000001000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb9226600000000000000000000000000000000000000000000000000000000000003e800000000000000000000000000000000000000000000000000000000"
 	s := crypto.Keccak256(common.Hex2Bytes(logs))
-	//与ExecutingMessage事件的msgHash匹配
+	// 与ExecutingMessage事件的msgHash匹配
 	fmt.Println(hex.EncodeToString(s))
 
 	sendMessageEvent := &event.SendMessage{}
@@ -101,7 +101,7 @@ func TestHashCody(t *testing.T) {
 
 	packed, _ := arguments.Pack(destination, source, nonce, sender, target, message)
 	messageHash := crypto.Keccak256Hash(packed)
-	//与RelayedMessage事件的messageHash匹配
+	// 与RelayedMessage事件的messageHash匹配
 	fmt.Println(messageHash)
 }
 

@@ -28,7 +28,6 @@ func init() {
 	cfg := config.GetConfig()
 	AddContract(cfg.L2toL2CrossDomainMessenger)
 	AddContract(cfg.CrossL2Inbox)
-
 }
 
 func Register(event Event) {

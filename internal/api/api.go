@@ -1,12 +1,13 @@
 package api
 
 import (
+	"net/http"
+	"strconv"
+
 	"github.com/gin-gonic/gin"
 	"github.com/optimism-java/interopbackend/internal/schema"
 	config "github.com/optimism-java/interopbackend/internal/types"
 	"gorm.io/gorm"
-	"net/http"
-	"strconv"
 )
 
 type Api struct {

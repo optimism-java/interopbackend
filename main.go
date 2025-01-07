@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+
 	"github.com/gin-gonic/gin"
 	"github.com/optimism-java/interopbackend/handler"
 	"github.com/optimism-java/interopbackend/internal/api"
