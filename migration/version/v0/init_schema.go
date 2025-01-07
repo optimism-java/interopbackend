@@ -1,6 +1,6 @@
 package v0
 
-import migration "github.com/optimism-java/interopbankend/migration/version"
+import migration "github.com/optimism-java/interopbackend/migration/version"
 
 type SyncBlock struct {
 	migration.Base

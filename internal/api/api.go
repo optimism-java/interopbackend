@@ -2,8 +2,8 @@ package api
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/optimism-java/interopbankend/internal/schema"
-	config "github.com/optimism-java/interopbankend/internal/types"
+	"github.com/optimism-java/interopbackend/internal/schema"
+	config "github.com/optimism-java/interopbackend/internal/types"
 	"gorm.io/gorm"
 	"net/http"
 	"strconv"

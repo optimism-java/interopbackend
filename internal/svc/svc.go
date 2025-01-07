@@ -2,7 +2,7 @@ package svc
 
 import (
 	"context"
-	"github.com/optimism-java/interopbankend/internal/types"
+	"github.com/optimism-java/interopbackend/internal/types"
 	"log"
 	"time"
 

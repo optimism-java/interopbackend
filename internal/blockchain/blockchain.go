@@ -3,8 +3,8 @@ package blockchain
 import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	config "github.com/optimism-java/interopbankend/internal/types"
-	"github.com/optimism-java/interopbankend/pkg/event"
+	config "github.com/optimism-java/interopbackend/internal/types"
+	"github.com/optimism-java/interopbackend/pkg/event"
 )
 
 type Event interface {

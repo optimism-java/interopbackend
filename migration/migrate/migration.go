@@ -2,8 +2,8 @@ package migrate
 
 import (
 	"github.com/go-gormigrate/gormigrate/v2"
-	version "github.com/optimism-java/interopbankend/migration"
-	v0 "github.com/optimism-java/interopbankend/migration/version/v0"
+	version "github.com/optimism-java/interopbackend/migration"
+	v0 "github.com/optimism-java/interopbackend/migration/version/v0"
 	"log"
 
 	"gorm.io/gorm"

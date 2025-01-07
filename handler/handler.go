@@ -1,6 +1,6 @@
 package handler
 
-import "github.com/optimism-java/interopbankend/internal/svc"
+import "github.com/optimism-java/interopbackend/internal/svc"
 
 func Run(ctx *svc.ServiceContext) {
 	// query last block number

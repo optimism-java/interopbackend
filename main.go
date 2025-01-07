@@ -3,12 +3,12 @@ package main
 import (
 	"context"
 	"github.com/gin-gonic/gin"
-	"github.com/optimism-java/interopbankend/handler"
-	"github.com/optimism-java/interopbankend/internal/api"
-	"github.com/optimism-java/interopbankend/internal/svc"
-	"github.com/optimism-java/interopbankend/internal/types"
-	"github.com/optimism-java/interopbankend/migration/migrate"
-	"github.com/optimism-java/interopbankend/pkg/log"
+	"github.com/optimism-java/interopbackend/handler"
+	"github.com/optimism-java/interopbackend/internal/api"
+	"github.com/optimism-java/interopbackend/internal/svc"
+	"github.com/optimism-java/interopbackend/internal/types"
+	"github.com/optimism-java/interopbackend/migration/migrate"
+	"github.com/optimism-java/interopbackend/pkg/log"
 )
 
 func main() {

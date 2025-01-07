@@ -6,7 +6,7 @@ import (
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/optimism-java/interopbankend/pkg/event"
+	"github.com/optimism-java/interopbackend/pkg/event"
 	"math/big"
 	"testing"
 )

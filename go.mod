@@ -1,4 +1,4 @@
-module github.com/optimism-java/interopbankend
+module github.com/optimism-java/interopbackend
 
 go 1.23.4
 

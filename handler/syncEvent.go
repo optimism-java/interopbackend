@@ -2,12 +2,12 @@ package handler
 
 import (
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/optimism-java/interopbackend/internal/blockchain"
+	"github.com/optimism-java/interopbackend/internal/schema"
+	"github.com/optimism-java/interopbackend/internal/svc"
+	"github.com/optimism-java/interopbackend/pkg/log"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
-	"interopbankend/internal/blockchain"
-	"interopbankend/internal/schema"
-	"interopbankend/internal/svc"
-	"interopbankend/pkg/log"
 	"sync"
 	"time"
 )
