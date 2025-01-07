@@ -1,5 +1,9 @@
 run:
   tests: false
+  skip-dirs:
+    - .*/
+    - vendor/
+  skip-dirs-use-default: true
   # timeout for analysis, e.g. 30s, 5m, default is 1m
   # timeout: 5m
 

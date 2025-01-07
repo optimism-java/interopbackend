@@ -2,6 +2,7 @@ package handler
 
 import (
 	"context"
+	"github.com/spf13/cast"
 	"math/big"
 	"strings"
 
@@ -60,13 +61,13 @@ func LogsToEvents(ctx *svc.ServiceContext, logs []types.Log, syncBlockId int64) 
 			continue
 		}
 
-		blockTime := blockTimes[int64(vlog.BlockNumber)]
+		blockTime := blockTimes[cast.ToInt64(vlog.BlockNumber)]
 		if blockTime == 0 {
-			block, err := ctx.L2RPC.BlockByNumber(context.Background(), big.NewInt(int64(vlog.BlockNumber)))
+			block, err := ctx.L2RPC.BlockByNumber(context.Background(), big.NewInt(cast.ToInt64(vlog.BlockNumber)))
 			if err != nil {
 				return nil, errors.WithStack(err)
 			}
-			blockTime = int64(block.Time())
+			blockTime = cast.ToInt64(block.Time())
 		}
 		data, err := Event.Data(vlog)
 		if err != nil {
@@ -79,10 +80,10 @@ func LogsToEvents(ctx *svc.ServiceContext, logs []types.Log, syncBlockId int64) 
 			Blockchain:      ctx.Config.Blockchain,
 			SyncBlockID:     syncBlockId,
 			BlockTime:       blockTime,
-			BlockNumber:     int64(vlog.BlockNumber),
+			BlockNumber:     cast.ToInt64(vlog.BlockNumber),
 			BlockHash:       vlog.BlockHash.Hex(),
-			BlockLogIndexed: int64(vlog.Index),
-			TxIndex:         int64(vlog.TxIndex),
+			BlockLogIndexed: cast.ToInt64(vlog.Index),
+			TxIndex:         cast.ToInt64(vlog.TxIndex),
 			TxHash:          vlog.TxHash.Hex(),
 			EventName:       Event.Name(),
 			EventHash:       eventHash.Hex(),
