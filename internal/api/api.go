@@ -19,6 +19,15 @@ func NewAPIHandler(config *config.Config, db *gorm.DB) *Api {
 	return &Api{Config: config, DB: db}
 }
 
+// @Summary Get sync blocks with pagination
+// @Description Get a paginated list of sync blocks
+// @Tags Blocks
+// @Accept json
+// @Produce json
+// @Param page query int false "Page number (default: 1)"
+// @Param pageSize query int false "Page size (default: 10, max: 100)"
+// @Success 200 {object} map[string]interface{} "code": 200, "msg": "success", "data": {"list": []schema.SyncBlock, "total": int64, "page": int, "pageSize": int}
+// @Router /blocks [get]
 func (h Api) GetSyncBlocks(c *gin.Context) {
 	// Get query parameters from URL
 	pageStr := c.Query("page")
@@ -56,6 +65,15 @@ func (h Api) GetSyncBlocks(c *gin.Context) {
 	})
 }
 
+// @Summary Get executing messages by block number
+// @Description Get all executing messages for a specific block number
+// @Tags Messages
+// @Accept json
+// @Produce json
+// @Param blockNumber path int true "Block Number"
+// @Success 200 {object} map[string]interface{} "code": 200, "msg": "success", "data": []schema.SyncEvent
+// @Failure 400 {object} map[string]interface{} "code": 400, "msg": "Invalid block number", "data": nil
+// @Router /blocks/{blockNumber}/executingMessage [get]
 func (h Api) GetExecutingMessageByBlockNumber(c *gin.Context) {
 	blockNumberStr := c.Param("blockNumber")
 	blockNumber, err := strconv.ParseInt(blockNumberStr, 10, 64)
@@ -79,6 +97,14 @@ func (h Api) GetExecutingMessageByBlockNumber(c *gin.Context) {
 	})
 }
 
+// @Summary Get sent message by hash
+// @Description Get sent message details using message hash
+// @Tags Messages
+// @Accept json
+// @Produce json
+// @Param hash path string true "Message Hash"
+// @Success 200 {object} map[string]interface{} "code": 200, "msg": "success", "data": schema.SyncEvent
+// @Router /blocks/sentMessage/{hash} [get]
 func (h Api) GetSentMessageByHash(c *gin.Context) {
 	hash := c.Param("hash")
 
@@ -94,6 +120,14 @@ func (h Api) GetSentMessageByHash(c *gin.Context) {
 	})
 }
 
+// @Summary Get relayed message by hash
+// @Description Get relayed message details using message hash
+// @Tags Messages
+// @Accept json
+// @Produce json
+// @Param hash path string true "Message Hash"
+// @Success 200 {object} map[string]interface{} "code": 200, "msg": "success", "data": schema.SyncEvent
+// @Router /blocks/relayedMessage/{hash} [get]
 func (h Api) GetRelayedMessageByHash(c *gin.Context) {
 	hash := c.Param("hash")
 

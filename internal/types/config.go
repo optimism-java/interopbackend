@@ -11,12 +11,12 @@ type Config struct {
 	LogLevel string `env:"LOG_LEVEL" envDefault:"info"`
 	// "console","json"
 	LogFormat                  string `env:"LOG_FORMAT" envDefault:"console"`
-	MySQLDataSource            string `env:"MYSQL_DATA_SOURCE" envDefault:"root:root@tcp(127.0.0.1:3367)/OPChainB?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true"`
+	MySQLDataSource            string `env:"MYSQL_DATA_SOURCE" envDefault:"root:root@tcp(127.0.0.1:3367)/OPChainA?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true"`
 	MySQLMaxIdleConns          int    `env:"MYSQL_MAX_IDLE_CONNS" envDefault:"10"`
 	MySQLMaxOpenConns          int    `env:"MYSQL_MAX_OPEN_CONNS" envDefault:"20"`
 	MySQLConnMaxLifetime       int    `env:"MYSQL_CONN_MAX_LIFETIME" envDefault:"3600"`
-	Blockchain                 string `env:"BLOCKCHAIN" envDefault:"OPChainB"`
-	BlockChainID               int64  `env:"BLOCKCHAIN_ID" envDefault:"902"`
+	Blockchain                 string `env:"BLOCKCHAIN" envDefault:"OPChainA"`
+	BlockChainID               int64  `env:"BLOCKCHAIN_ID" envDefault:"901"`
 	L2RPCUrl                   string `env:"L2_RPC_URL" envDefault:"http://127.0.0.1:9546"`
 	RPCRateLimit               int    `env:"RPC_RATE_LIMIT" envDefault:"15"`
 	RPCRateBurst               int    `env:"RPC_RATE_BURST" envDefault:"5"`

@@ -1,0 +1,106 @@
+basePath: /
+host: localhost:8080
+info:
+  contact: {}
+  description: Interop Backend Service API Documentation
+  title: Interop Backend API
+  version: "1.0"
+paths:
+  /blocks:
+    get:
+      consumes:
+      - application/json
+      description: Get a paginated list of sync blocks
+      parameters:
+      - description: 'Page number (default: 1)'
+        in: query
+        name: page
+        type: integer
+      - description: 'Page size (default: 10, max: 100)'
+        in: query
+        name: pageSize
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 'code": 200, "msg": "success", "data": {"list": []schema.SyncBlock,
+            "total": int64, "page": int, "pageSize": int}'
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Get sync blocks with pagination
+      tags:
+      - Blocks
+  /blocks/{blockNumber}/executingMessage:
+    get:
+      consumes:
+      - application/json
+      description: Get all executing messages for a specific block number
+      parameters:
+      - description: Block Number
+        in: path
+        name: blockNumber
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 'code": 200, "msg": "success", "data": []schema.SyncEvent'
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: 'code": 400, "msg": "Invalid block number", "data": nil'
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Get executing messages by block number
+      tags:
+      - Messages
+  /blocks/relayedMessage/{hash}:
+    get:
+      consumes:
+      - application/json
+      description: Get relayed message details using message hash
+      parameters:
+      - description: Message Hash
+        in: path
+        name: hash
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 'code": 200, "msg": "success", "data": schema.SyncEvent'
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Get relayed message by hash
+      tags:
+      - Messages
+  /blocks/sentMessage/{hash}:
+    get:
+      consumes:
+      - application/json
+      description: Get sent message details using message hash
+      parameters:
+      - description: Message Hash
+        in: path
+        name: hash
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 'code": 200, "msg": "success", "data": schema.SyncEvent'
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Get sent message by hash
+      tags:
+      - Messages
+swagger: "2.0"
