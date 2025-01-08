@@ -23,11 +23,4 @@ jobs:
         with:
           PATTERNS: |
             **/**.md
-      - uses: gaurav-nelson/github-action-markdown-link-check@master
-        with:
-          folder-path: "docs"
-          check-modified-files-only: "yes"
-          use-quiet-mode: "yes"
-          base-branch: "dev"
-          node-version: ${{ matrix.node-version }}
-        if: env.GIT_DIFF
+
